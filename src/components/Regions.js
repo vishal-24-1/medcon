@@ -86,7 +86,7 @@ const regionsData = [
 // Create a scale for bubble size based on revenue
 const maxRevenue = Math.max(...regionsData.map(d => d.revenue));
 const sizeScale = scaleSqrt().domain([0, maxRevenue]).range([0, 20]);
-
+const geoUrl = "/data/custom.geo";
 const Regions = () => {
   return (
     <section id="regions" style={{ padding: '1.5rem', display: 'block' }}>

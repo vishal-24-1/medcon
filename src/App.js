@@ -12,7 +12,7 @@ const App = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
-    document.title = "IVD Sales Analytics Dashboard";
+    document.title = "Sales Analytics Dashboard";
 
     const handleHashChange = () => {
       const currentHash = window.location.hash || '#overview';
@@ -122,7 +122,7 @@ const App = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                   </svg>
                 </button>
-                <span style={{ marginLeft: '0.75rem', fontSize: '1.25rem', fontWeight: '600' }}>IVD Analytics</span>
+                <span style={{ marginLeft: '0.75rem', fontSize: '1.25rem', fontWeight: '600' }}>Sales Analytics</span>
               </div>
               <img src="https://avatar.iran.liara.run/public" alt="Avatar" style={{ width: '2rem', height: '2rem', borderRadius: '9999px' }} />
             </div>
