@@ -62,9 +62,9 @@ const Products = () => {
 
   const revenueDistOptions = {
     chart: { type: "donut", height: 320 },
-    series: [44, 55, 13, 33],
-    labels: ["Clinical Chemistry", "Hematology", "Protein", "Molecular"],
-    colors: ["#0ea5e9", "#22c55e", "#a855f7", "#eab308"],
+    series: [44, 55, 13, 33,34],
+    labels: ["Clinical Chemistry", "Hematology", "Immunology", "Molecular Diagnostics", "Urine Analyzers"],
+    colors: ["#0ea5e9", "#22c55e", "#a855f7", "#eab308" ,"#00008B"],
   };
 
   const monthlyCompOptions = {
