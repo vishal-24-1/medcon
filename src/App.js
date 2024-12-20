@@ -10,6 +10,10 @@ const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState('#overview');
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+
+  
 
   useEffect(() => {
     document.title = "Sales Analytics Dashboard";
@@ -34,6 +38,8 @@ const App = () => {
     };
   }, []);
 
+  
+
   const navLinks = [
     { href: '#overview', icon: 'fas fa-chart-line', label: 'Overview' },
     { href: '#products', icon: 'fas fa-box', label: 'Products' },
@@ -42,9 +48,17 @@ const App = () => {
     { href: '#forecast', icon: 'fas fa-robot', label: 'Forecast' },
     { href: '#reports', icon: 'fas fa-file-alt', label: 'Reports' }
   ];
-
   const sectionTitle = navLinks.find(l => l.href === activeHash)?.label || 'Overview';
-
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (dropdownOpen) setDropdownOpen(false); // Close the dropdown
+    };
+  
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [dropdownOpen]);
   return (
     <div id="root" style={{ width: '100%', minHeight: '100vh', overflow: 'hidden' }}>
       <div style={{ display: 'flex' }}>
@@ -173,34 +187,193 @@ const App = () => {
             paddingTop: isLargeScreen ? '0' : '4rem'
           }}
         >
-          {/* Header - visible on large screens */}
-          {isLargeScreen && (
-            <header style={{
-              backgroundColor: '#ffffff', borderBottom: '1px solid #e5e7eb',
-              position: 'sticky', top: 0, zIndex: 40
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.5rem' }}>
-                <h1 style={{ fontSize: '1.5rem', fontWeight: '600' }}>{sectionTitle}</h1>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ position: 'relative' }}>
-                    <input
-                      type="search"
-                      placeholder="Search..."
-                      style={{
-                        paddingLeft: '2.5rem', paddingRight: '1rem', paddingTop: '0.5rem', paddingBottom: '0.5rem',
-                        border: '1px solid #d1d5db', borderRadius: '0.5rem', width: '16rem', fontSize: '0.875rem'
-                      }}
-                    />
-                    <i className="fas fa-search"
-                      style={{ position: 'absolute', left: '0.75rem', top: '0.75rem', color: '#9ca3af' }}></i>
-                  </div>
-                  <button style={{ padding: '0.5rem', borderRadius: '0.5rem' }}>
-                    <i className="fas fa-bell" style={{ color: '#4b5563' }}></i>
-                  </button>
+        {/* Header - visible on large screens */}
+        {isLargeScreen && (
+          <header
+            style={{
+              backgroundColor: "#ffffff",
+              borderBottom: "1px solid #e5e7eb",
+              position: "sticky",
+              top: 0,
+              zIndex: 40,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "1rem 1.5rem",
+              }}
+            >
+              {/* Section Title */}
+              <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>{sectionTitle}</h1>
+
+              {/* Header Components */}
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                {/* Search Bar */}
+                <div style={{ position: "relative" }}>
+                  <input
+                    type="search"
+                    placeholder="Search..."
+                    style={{
+                      paddingLeft: "2.5rem",
+                      paddingRight: "1rem",
+                      paddingTop: "0.5rem",
+                      paddingBottom: "0.5rem",
+                      border: "1px solid #d1d5db",
+                      borderRadius: "0.5rem",
+                      width: "16rem",
+                      fontSize: "0.875rem",
+                    }}
+                  />
+                  <i
+                    className="fas fa-search"
+                    style={{
+                      position: "absolute",
+                      left: "0.75rem",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      color: "#9ca3af",
+                    }}
+                  ></i>
                 </div>
+
+                {/* Notification Icon */}
+                <button
+                  style={{
+                    padding: "0.5rem",
+                    borderRadius: "0.5rem",
+                    position: "relative",
+                  }}
+                >
+                  <i className="fas fa-bell" style={{ color: "#4b5563" }}></i>
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "0",
+                      right: "0",
+                      backgroundColor: "#f87171",
+                      color: "#ffffff",
+                      fontSize: "0.75rem",
+                      borderRadius: "50%",
+                      width: "0.75rem",
+                      height: "0.75rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    •
+                  </span>
+                </button>
+                {/* User Dropdown */}
+<div style={{ position: "relative" }}>
+  <button
+    style={{
+      display: "flex",
+      alignItems: "center",
+      gap: "0.5rem",
+      padding: "0.5rem",
+      borderRadius: "0.5rem",
+      cursor: "pointer",
+      border: "none",
+      background: "none",
+    }}
+    onClick={(e) => {
+      e.stopPropagation(); // Prevent event propagation
+      setDropdownOpen((prev) => !prev); // Toggle the dropdown
+    }}
+  >
+    <div
+      style={{
+        backgroundColor: "#f9a8d4",
+        color: "#ffffff",
+        width: "2rem",
+        height: "2rem",
+        borderRadius: "50%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontWeight: "600",
+        fontSize: "1rem",
+      }}
+    >
+      RK
+    </div>
+    <span style={{ fontWeight: "500", color: "#374151" }}>Ram Kumar</span>
+    <i className="fas fa-chevron-down" style={{ color: "#9ca3af" }}></i>
+  </button>
+
+  {/* Dropdown Menu */}
+  {dropdownOpen && (
+    <div
+      style={{
+        position: "absolute",
+        top: "2.5rem",
+        right: "0",
+        backgroundColor: "#ffffff",
+        border: "1px solid #e5e7eb",
+        borderRadius: "0.5rem",
+        boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+        width: "12rem",
+        zIndex: 50,
+      }}
+      onClick={(e) => e.stopPropagation()} // Prevent closing on child click
+    >
+      <a
+        href="#profile"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "0.75rem 1rem",
+          fontSize: "0.875rem",
+          color: "#374151",
+          textDecoration: "none",
+          borderBottom: "1px solid #e5e7eb",
+        }}
+      >
+        <i className="fas fa-user" style={{ marginRight: "0.5rem" }}></i>
+        Profile
+      </a>
+      <a
+        href="#settings"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "0.75rem 1rem",
+          fontSize: "0.875rem",
+          color: "#374151",
+          textDecoration: "none",
+          borderBottom: "1px solid #e5e7eb",
+        }}
+      >
+        <i className="fas fa-cog" style={{ marginRight: "0.5rem" }}></i>
+        Settings
+      </a>
+      <a
+        href="#logout"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "0.75rem 1rem",
+          fontSize: "0.875rem",
+          color: "#ef4444",
+          textDecoration: "none",
+        }}
+      >
+        <i className="fas fa-sign-out-alt" style={{ marginRight: "0.5rem" }}></i>
+        Logout
+      </a>
+    </div>
+  )}
+</div>;
+
               </div>
-            </header>
-          )}
+            </div>
+          </header>
+        )}
+
 
           {/* Conditionally render pages based on activeHash */}
           {activeHash === '#overview' && <Overview />}

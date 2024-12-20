@@ -20,79 +20,165 @@ const Overview = () => {
     colors: ['#22c55e'],
     plotOptions: { bar: { borderRadius: 4, horizontal: true } }
   };
-
+  const insights = [
+    {
+      title: "AI Revenue Optimization",
+      items: [
+        {
+          heading: "Revenue Growth Opportunities",
+          description:
+            "Identify $2.5M untapped revenue in premium diagnostic devices across Tier 2 cities.",
+        },
+        {
+          heading: "Price Optimization",
+          description:
+            "Discover dynamic pricing strategies to boost revenue by 12%.",
+        },
+        {
+          heading: "Product Performance Insights",
+          description:
+            "Pinpoint underperforming products to reallocate marketing budgets effectively.",
+        },
+      ],
+      bgColor: "#f0fdf4",
+      iconColor: "#22c55e",
+      iconClass: "fas fa-chart-line",
+    },
+    {
+      title: "AI Sales and Product Insights",
+      items: [
+        {
+          heading: "Top Product Trends",
+          description:
+            "Mispa CX4 leads sales with 28% revenue share; focus marketing efforts.",
+        },
+        {
+          heading: "Demand Surge Prediction",
+          description:
+            "15% increase in demand for portable devices expected in Q4.",
+        },
+        {
+          heading: "Market Expansion Opportunities",
+          description: "Explore a 10% growth potential in emerging APAC regions.",
+        },
+      ],
+      bgColor: "#eff6ff",
+      iconColor: "#3b82f6",
+      iconClass: "fas fa-box",
+    },
+  ];
+  const kpiData = [
+    {
+      title: 'Total Revenue (YTD)',
+      value: '₹245.8M',
+      trend: 12.5,
+      positive: true,
+      bgColor: '#eff6ff',
+      icon: 'fas fa-chart-line',
+    },
+    {
+      title: 'Total Units Sold',
+      value: '1,842',
+      trend: 8.2,
+      positive: true,
+      bgColor: '#f0fdf4',
+      icon: 'fas fa-box',
+    },
+    {
+      title: 'Retention Rate',
+      value: '84.6%',
+      trend: 2.1,
+      positive: false,
+      bgColor: '#faf5ff',
+      icon: 'fas fa-users',
+    },
+    {
+      title: 'Revenue Growth',
+      value: '15.2%',
+      trend: 5.3,
+      positive: true,
+      bgColor: '#fefce8',
+      icon: 'fas fa-chart-bar',
+    },
+  ];
+  
   return (
     <section id="overview_dashboard" style={{ padding: '1.5rem', display: 'block' }}>
       {/* KPI Cards Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(15rem,1fr))',
-        gap: '1.5rem'
-      }}>
-        {/* Total Revenue */}
-        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Revenue (YTD)</p>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>₹245.8M</h3>
-              <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-                <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>12.5%
-              </span>
-            </div>
-            <div style={{ padding: '0.75rem', backgroundColor: '#eff6ff', borderRadius: '0.5rem' }}>
-              <i className="fas fa-chart-line" style={{ color: '#3b82f6' }}></i>
-            </div>
-          </div>
-        </div>
-
-        {/* Units Sold */}
-        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Units Sold</p>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>1,842</h3>
-              <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-                <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>8.2%
-              </span>
-            </div>
-            <div style={{ padding: '0.75rem', backgroundColor: '#f0fdf4', borderRadius: '0.5rem' }}>
-              <i className="fas fa-box" style={{ color: '#22c55e' }}></i>
-            </div>
-          </div>
-        </div>
-
-        {/* Customer Retention */}
-        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Retention Rate</p>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>84.6%</h3>
-              <span style={{ fontSize: '0.875rem', color: '#dc2626', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-                <i className="fas fa-arrow-down" style={{ marginRight: '0.25rem' }}></i>2.1%
-              </span>
-            </div>
-            <div style={{ padding: '0.75rem', backgroundColor: '#faf5ff', borderRadius: '0.5rem' }}>
-              <i className="fas fa-users" style={{ color: '#a855f7' }}></i>
-            </div>
-          </div>
-        </div>
-
-        {/* Growth Rate */}
-        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Revenue Growth</p>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>15.2%</h3>
-              <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-                <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>5.3%
-              </span>
-            </div>
-            <div style={{ padding: '0.75rem', backgroundColor: '#fefce8', borderRadius: '0.5rem' }}>
-              <i className="fas fa-chart-bar" style={{ color: '#eab308' }}></i>
-            </div>
-          </div>
-        </div>
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(15rem,1fr))',
+  gap: '1.5rem'
+}}>
+  {/* Total Revenue */}
+  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div>
+        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Revenue (YTD)</p>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>₹245.8M</h3>
+        <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+          <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>12.5%
+        </span>
+        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
       </div>
+      <div style={{ padding: '0.75rem', backgroundColor: '#eff6ff', borderRadius: '0.5rem' }}>
+        <i className="fas fa-chart-line" style={{ color: '#3b82f6' }}></i>
+      </div>
+    </div>
+  </div>
+
+  {/* Total Units Sold */}
+  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div>
+        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Units Sold</p>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>1,842</h3>
+        <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+          <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>8.2%
+        </span>
+        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+      </div>
+      <div style={{ padding: '0.75rem', backgroundColor: '#f0fdf4', borderRadius: '0.5rem' }}>
+        <i className="fas fa-box" style={{ color: '#22c55e' }}></i>
+      </div>
+    </div>
+  </div>
+
+  {/* Retention Rate */}
+  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div>
+        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Retention Rate</p>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>84.6%</h3>
+        <span style={{ fontSize: '0.875rem', color: '#dc2626', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+          <i className="fas fa-arrow-down" style={{ marginRight: '0.25rem' }}></i>2.1%
+        </span>
+        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+      </div>
+      <div style={{ padding: '0.75rem', backgroundColor: '#faf5ff', borderRadius: '0.5rem' }}>
+        <i className="fas fa-users" style={{ color: '#a855f7' }}></i>
+      </div>
+    </div>
+  </div>
+
+  {/* Revenue Growth */}
+  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div>
+        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Revenue Growth</p>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>15.2%</h3>
+        <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+          <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>5.3%
+        </span>
+        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+      </div>
+      <div style={{ padding: '0.75rem', backgroundColor: '#fefce8', borderRadius: '0.5rem' }}>
+        <i className="fas fa-chart-bar" style={{ color: '#eab308' }}></i>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Charts Grid */}
       <div style={{ marginTop: '1.5rem' }}>
@@ -168,9 +254,58 @@ const Overview = () => {
             </div>
           </div>
         </div>
+        {/* AI Insights Section */}
+      <div style={{ marginTop: '2rem' }}>
+        {insights.map((insight, index) => (
+          <div
+            key={index}
+            style={{
+              backgroundColor: insight.bgColor,
+              padding: '1.5rem',
+              borderRadius: '0.5rem',
+              marginBottom: '1.5rem',
+            }}
+          >
+            <h3 style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', color: '#374151' }}>
+              <i
+                className={insight.iconClass}
+                style={{
+                  marginRight: '0.5rem',
+                  fontSize: '1.5rem',
+                  color: insight.iconColor,
+                }}
+              ></i>
+              {insight.title}
+            </h3>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                gap: '1rem',
+              }}
+            >
+              {insight.items.map((item, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    backgroundColor: '#ffffff',
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    border: '1px solid #e5e7eb',
+                  }}
+                >
+                  <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#374151', marginBottom: '0.5rem' }}>
+                    {item.heading}
+                  </h4>
+                  <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
       </div>
     </section>
   );
 };
-
 export default Overview;

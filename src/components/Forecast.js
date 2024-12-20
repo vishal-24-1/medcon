@@ -8,7 +8,68 @@ const Forecast = () => {
     colors: ['#6366f1'],
     series: [{ data: [25,66,41,89,63,25,44,12,36,9,54] }]
   };
-
+  const insights = [
+    {
+      title: "AI Revenue Insights",
+      items: [
+        {
+          heading: "Quarterly Revenue Growth",
+          description: "Projected quarterly revenue is ₹298.5M, a growth of 12.3% compared to the last quarter.",
+        },
+        {
+          heading: "High Growth Segments",
+          description: "Products like 'Mispa CX4' and 'Mispa HX 88' are forecasted to grow by 18% and 15%, respectively.",
+        },
+        {
+          heading: "Market Growth Opportunities",
+          description: "Optimistic market scenarios predict an additional 10% growth in revenue by leveraging seasonality trends.",
+        },
+      ],
+      bgColor: "#eef2ff",
+      iconColor: "#6366f1",
+      iconClass: "fas fa-chart-line",
+    },
+    {
+      title: "AI Scenario Insights",
+      items: [
+        {
+          heading: "Base Case Stability",
+          description: "Base-case revenue remains stable across all months, ensuring consistent cash flow.",
+        },
+        {
+          heading: "Optimistic Scenario Impact",
+          description: "Optimistic scenarios predict a potential revenue boost of ₹76M in the next quarter.",
+        },
+        {
+          heading: "Seasonality Opportunities",
+          description: "High season adjustments could optimize growth potential by up to 8% during peak months.",
+        },
+      ],
+      bgColor: "#fefce8",
+      iconColor: "#eab308",
+      iconClass: "fas fa-bullseye",
+    },
+    {
+      title: "AI Product Insights",
+      items: [
+        {
+          heading: "Top Performers",
+          description: "'Mispa CX4' and 'TBA-2000FR' are forecasted to generate the highest revenue, contributing 40% of total revenue.",
+        },
+        {
+          heading: "Emerging Product",
+          description: "'Mispa Nano' shows steady growth of 20% quarter-over-quarter, driven by competitive pricing strategies.",
+        },
+        {
+          heading: "Focus Areas",
+          description: "Increasing production capacity for high-growth products like 'Mispa HX 88' is recommended.",
+        },
+      ],
+      bgColor: "#f0fdf4",
+      iconColor: "#22c55e",
+      iconClass: "fas fa-box",
+    },
+  ];
   const revenueTrendForecastOptions = {
     chart: { type: 'line', height: 320, toolbar: { show: false } },
     series: [
@@ -218,8 +279,59 @@ const Forecast = () => {
           <ReactApexChart options={scenarioImpactOptions} series={scenarioImpactOptions.series} type="bar" height={320}/>
         </div>
       </div>
+      {/* AI Insights Section */}
+      <div style={{ marginTop: "2rem" }}>
+        {insights.map((insight, index) => (
+          <div
+            key={index}
+            style={{
+              backgroundColor: insight.bgColor,
+              padding: "1.5rem",
+              borderRadius: "0.5rem",
+              marginBottom: "1.5rem",
+            }}
+          >
+            <h3 style={{ display: "flex", alignItems: "center", marginBottom: "1rem", color: "#374151" }}>
+              <i
+                className={insight.iconClass}
+                style={{
+                  marginRight: "0.5rem",
+                  fontSize: "1.5rem",
+                  color: insight.iconColor,
+                }}
+              ></i>
+              {insight.title}
+            </h3>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {insight.items.map((item, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    padding: "1rem",
+                    borderRadius: "0.5rem",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <h4 style={{ fontSize: "1rem", fontWeight: "600", color: "#374151", marginBottom: "0.5rem" }}>
+                    {item.heading}
+                  </h4>
+                  <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
 
 export default Forecast;
+

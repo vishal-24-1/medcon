@@ -30,7 +30,6 @@ const customerDistOptions = {
   colors: ['#22c55e', '#0ea5e9']
 };
 
-// Google Geo Chart Data
 const geoChartData = [
   ['State', 'Revenue (in Millions)'],
   ['Tamil Nadu', 45.2],
@@ -39,14 +38,57 @@ const geoChartData = [
 ];
 
 const geoChartOptions = {
-  region: 'IN', // Focus on India
-  resolution: 'provinces', // Show state-level granularity
+  region: 'IN',
+  resolution: 'provinces',
   colorAxis: { colors: ['#eff6ff', '#3b82f6'] },
   backgroundColor: '#f3f4f6',
   datalessRegionColor: '#e5e7eb',
 };
 
 const Regions = () => {
+  const insights = [
+    {
+      title: "AI Regional Insights",
+      items: [
+        {
+          heading: "Growth Leader",
+          description: "Tamil Nadu leads with ₹45.2M in revenue",
+        },
+        {
+          heading: "Emerging Region",
+          description: "Andhra Pradesh shows consistent growth of +10.5%",
+        },
+        {
+          heading: "Customer Retention",
+          description: "Karnataka has the highest repeat customer rate",
+        },
+      ],
+      bgColor: "#eff6ff",
+      iconColor: "#3b82f6",
+      iconClass: "fas fa-globe",
+    },
+    {
+      title: "AI Customer Insights",
+      items: [
+        {
+          heading: "New Customer Growth",
+          description: "44% of total customers are first-time buyers",
+        },
+        {
+          heading: "Returning Customers",
+          description: "56% are repeat customers with higher purchase values",
+        },
+        {
+          heading: "Urban Market Focus",
+          description: "Chennai and Bangalore account for 40% of revenue",
+        },
+      ],
+      bgColor: "#f0fdf4",
+      iconColor: "#22c55e",
+      iconClass: "fas fa-users",
+    },
+  ];
+
   return (
     <section id="regions" style={{ padding: '1.5rem', display: 'block' }}>
       {/* Filters */}
@@ -69,7 +111,7 @@ const Regions = () => {
 
       {/* Regional Overview */}
       <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem', marginTop: '1.5rem' }}>
-        {/* Map Visualization with Google Geo Charts */}
+        {/* Map Visualization */}
         <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
           <h3 style={{ fontWeight: '600', marginBottom: '1rem' }}>Regional Sales Distribution</h3>
           <Chart
@@ -99,7 +141,7 @@ const Regions = () => {
                   ₹{region.revenue}M
                 </span>
               </div>
-            )
+            );
           })}
         </div>
       </div>
@@ -117,6 +159,57 @@ const Regions = () => {
           <h3 style={{ fontWeight: '600', marginBottom: '1rem' }}>Customer Distribution</h3>
           <ReactApexChart options={customerDistOptions} series={customerDistOptions.series} type="donut" height={320} />
         </div>
+      </div>
+
+      {/* AI Insights Section */}
+      <div style={{ marginTop: "2rem" }}>
+        {insights.map((insight, index) => (
+          <div
+            key={index}
+            style={{
+              backgroundColor: insight.bgColor,
+              padding: "1.5rem",
+              borderRadius: "0.5rem",
+              marginBottom: "1.5rem",
+            }}
+          >
+            <h3 style={{ display: "flex", alignItems: "center", marginBottom: "1rem", color: "#374151" }}>
+              <i
+                className={insight.iconClass}
+                style={{
+                  marginRight: "0.5rem",
+                  fontSize: "1.5rem",
+                  color: insight.iconColor,
+                }}
+              ></i>
+              {insight.title}
+            </h3>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {insight.items.map((item, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    padding: "1rem",
+                    borderRadius: "0.5rem",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <h4 style={{ fontSize: "1rem", fontWeight: "600", color: "#374151", marginBottom: "0.5rem" }}>
+                    {item.heading}
+                  </h4>
+                  <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -44,7 +44,48 @@ const Customers = () => {
     labels: ['New', 'Loyal', 'At Risk', 'Lost'],
     colors: ['#0ea5e9', '#22c55e', '#eab308', '#ef4444']
   };
-
+  const insights = [
+    {
+      title: "AI Customer Segmentation Insights",
+      items: [
+        {
+          heading: "High Loyal Customer Base",
+          description: "76% of customers exhibit loyalty, purchasing multiple times within a year.",
+        },
+        {
+          heading: "Retention Challenges",
+          description: "15% of customers fall into the 'At Risk' or 'Lost' categories, requiring targeted re-engagement strategies.",
+        },
+        {
+          heading: "New Customer Surge",
+          description: "44% of total customers onboarded this quarter are new acquisitions.",
+        },
+      ],
+      bgColor: "#eff6ff",
+      iconColor: "#3b82f6",
+      iconClass: "fas fa-users",
+    },
+    {
+      title: "AI Retention Insights",
+      items: [
+        {
+          heading: "Steady Retention",
+          description: "Retention rates remain high at 84.6% across all customer categories.",
+        },
+        {
+          heading: "Top Performing Product",
+          description: "Mispa CX4 boasts the highest retention rate of 89%.",
+        },
+        {
+          heading: "Improving Repeat Purchase Frequency",
+          description: "Customer purchase frequency averages 4.5 months, with room for optimization.",
+        },
+      ],
+      bgColor: "#fefce8",
+      iconColor: "#eab308",
+      iconClass: "fas fa-sync-alt",
+    },
+  ];
   const revenueByCustomerOptions = {
     chart: { type: 'bar', height: 320, stacked: true },
     series: [
@@ -233,8 +274,59 @@ const Customers = () => {
           </table>
         </div>
       </div>
+      {/* AI Insights Section */}
+      <div style={{ marginTop: "2rem" }}>
+        {insights.map((insight, index) => (
+          <div
+            key={index}
+            style={{
+              backgroundColor: insight.bgColor,
+              padding: "1.5rem",
+              borderRadius: "0.5rem",
+              marginBottom: "1.5rem",
+            }}
+          >
+            <h3 style={{ display: "flex", alignItems: "center", marginBottom: "1rem", color: "#374151" }}>
+              <i
+                className={insight.iconClass}
+                style={{
+                  marginRight: "0.5rem",
+                  fontSize: "1.5rem",
+                  color: insight.iconColor,
+                }}
+              ></i>
+              {insight.title}
+            </h3>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {insight.items.map((item, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    padding: "1rem",
+                    borderRadius: "0.5rem",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <h4 style={{ fontSize: "1rem", fontWeight: "600", color: "#374151", marginBottom: "0.5rem" }}>
+                    {item.heading}
+                  </h4>
+                  <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
 
 export default Customers;
+
