@@ -101,84 +101,292 @@ const Overview = () => {
       icon: 'fas fa-chart-bar',
     },
   ];
-  
+  // Sales Revenue Chart Data
+  const salesRevenueData = {
+    chart: {
+      type: "donut",
+      height: 350,
+    },
+    series: [24.9, 26.6, 26.2, 22.3], // Percentages for Q1, Q2, Q3, Q4
+    labels: ["Q1", "Q2", "Q3", "Q4"],
+    colors: ["#007bff", "#00bfff", "#87ceeb", "#add8e6"],
+    dataLabels: {
+      enabled: true,
+      formatter: (val) => `₹${val.toFixed(1)}%`,
+    },
+    legend: {
+      position: "bottom",
+      horizontalAlign: "center",
+    },
+    title: {
+      text: "Sales Revenue",
+      align: "center",
+      style: {
+        fontSize: "16px",
+        fontWeight: "bold",
+      },
+    },
+  };
+  const revenueGoal = {
+    currentRevenue: 15059143,
+    goalRevenue: 21082800,
+  };
+
+  // Monthly Recurring Revenue (MRR) Chart Data
+  const monthlyRevenueOptions = {
+    chart: {
+      type: "line",
+      height: 350,
+      toolbar: {
+        show: true,
+        tools: {
+          download: true,
+        },
+      },
+    },
+    series: [
+      {
+        name: "MRR",
+        data: [250050, 270200, 291000, 320500, 353800, 408900],
+      },
+    ],
+    xaxis: {
+      categories: ["Nov 2023", "Jan 2024", "Mar 2024", "May 2024", "Jul 2024", "Sep 2024"],
+      title: {
+        text: "Time Period",
+      },
+    },
+    yaxis: {
+      title: {
+        text: "Revenue (₹)",
+      },
+      labels: {
+        formatter: (val) => `₹${val.toLocaleString()}`,
+      },
+    },
+    markers: {
+      size: 5,
+      colors: ["#007bff"],
+    },
+    title: {
+      text: "Monthly Recurring Revenue",
+      align: "center",
+      style: {
+        fontSize: "16px",
+        fontWeight: "bold",
+      },
+    },
+  };
+
   return (
     <section id="overview_dashboard" style={{ padding: '1.5rem', display: 'block' }}>
       {/* KPI Cards Grid */}
-<div style={{
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(15rem,1fr))',
-  gap: '1.5rem'
-}}>
-  {/* Total Revenue */}
-  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-      <div>
-        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Revenue (YTD)</p>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>₹245.8M</h3>
-        <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-          <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>12.5%
-        </span>
-        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
-      </div>
-      <div style={{ padding: '0.75rem', backgroundColor: '#eff6ff', borderRadius: '0.5rem' }}>
-        <i className="fas fa-chart-line" style={{ color: '#3b82f6' }}></i>
-      </div>
-    </div>
-  </div>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(15rem,1fr))',
+        gap: '1.5rem'
+      }}>
+        {/* Total Revenue */}
+        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Revenue (YTD)</p>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>₹245.8M</h3>
+              <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+                <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>12.5%
+              </span>
+              <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+            </div>
+            <div style={{ padding: '0.75rem', backgroundColor: '#eff6ff', borderRadius: '0.5rem' }}>
+              <i className="fas fa-chart-line" style={{ color: '#3b82f6' }}></i>
+            </div>
+          </div>
+        </div>
 
-  {/* Total Units Sold */}
-  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-      <div>
-        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Units Sold</p>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>1,842</h3>
-        <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-          <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>8.2%
-        </span>
-        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
-      </div>
-      <div style={{ padding: '0.75rem', backgroundColor: '#f0fdf4', borderRadius: '0.5rem' }}>
-        <i className="fas fa-box" style={{ color: '#22c55e' }}></i>
-      </div>
-    </div>
-  </div>
+        {/* Total Units Sold */}
+        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Total Units Sold</p>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>1,842</h3>
+              <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+                <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>8.2%
+              </span>
+              <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+            </div>
+            <div style={{ padding: '0.75rem', backgroundColor: '#f0fdf4', borderRadius: '0.5rem' }}>
+              <i className="fas fa-box" style={{ color: '#22c55e' }}></i>
+            </div>
+          </div>
+        </div>
 
-  {/* Retention Rate */}
-  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-      <div>
-        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Retention Rate</p>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>84.6%</h3>
-        <span style={{ fontSize: '0.875rem', color: '#dc2626', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-          <i className="fas fa-arrow-down" style={{ marginRight: '0.25rem' }}></i>2.1%
-        </span>
-        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
-      </div>
-      <div style={{ padding: '0.75rem', backgroundColor: '#faf5ff', borderRadius: '0.5rem' }}>
-        <i className="fas fa-users" style={{ color: '#a855f7' }}></i>
-      </div>
-    </div>
-  </div>
+        {/* Retention Rate */}
+        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Retention Rate</p>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>84.6%</h3>
+              <span style={{ fontSize: '0.875rem', color: '#dc2626', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+                <i className="fas fa-arrow-down" style={{ marginRight: '0.25rem' }}></i>2.1%
+              </span>
+              <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+            </div>
+            <div style={{ padding: '0.75rem', backgroundColor: '#faf5ff', borderRadius: '0.5rem' }}>
+              <i className="fas fa-users" style={{ color: '#a855f7' }}></i>
+            </div>
+          </div>
+        </div>
 
-  {/* Revenue Growth */}
-  <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-      <div>
-        <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Revenue Growth</p>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>15.2%</h3>
-        <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
-          <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>5.3%
-        </span>
-        <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+        {/* Revenue Growth */}
+        <div style={{ backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <p style={{ fontSize: '0.875rem', color: '#4b5563' }}>Revenue Growth</p>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginTop: '0.25rem' }}>15.2%</h3>
+              <span style={{ fontSize: '0.875rem', color: '#16a34a', display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+                <i className="fas fa-arrow-up" style={{ marginRight: '0.25rem' }}></i>5.3%
+              </span>
+              <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>Compared to last month</p>
+            </div>
+            <div style={{ padding: '0.75rem', backgroundColor: '#fefce8', borderRadius: '0.5rem' }}>
+              <i className="fas fa-chart-bar" style={{ color: '#eab308' }}></i>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style={{ padding: '0.75rem', backgroundColor: '#fefce8', borderRadius: '0.5rem' }}>
-        <i className="fas fa-chart-bar" style={{ color: '#eab308' }}></i>
-      </div>
-    </div>
-  </div>
-</div>
+      
+      <div
+        style={{
+          marginTop: '1.5rem',
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "1.5rem",
+        }}
+      >
+      {/* Sales Revenue Section */}
+      <div
+        style={{
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          padding: '1.5rem',
+          border: '1px solid #e5e7eb',
+        }}
+      >
+        <h3
+          style={{
+            fontWeight: '600',
+            marginBottom: '1rem',
+            textAlign: 'center',
+          }}
+        >
+          Sales Revenue
+        </h3>
+        {/* Progress bar */}
+        <div
+          style={{
+            marginBottom: '1rem',
+            backgroundColor: '#E0E0E0',
+            height: '20px',
+            borderRadius: '10px',
+            position: 'relative',
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: '#4CAF50',
+              height: '100%',
+              borderRadius: '10px',
+              width: `${(revenueGoal.currentRevenue / revenueGoal.goalRevenue) * 100}%`,
+            }}
+          />
+          <span
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: `${(revenueGoal.currentRevenue / revenueGoal.goalRevenue) * 100}%`,
+              transform: 'translate(-50%, -50%)',
+              fontSize: '12px',
+              fontWeight: 'bold',
+              color: '#000',
+            }}
+          >
+            {`₹${revenueGoal.currentRevenue.toLocaleString()}`}
+          </span>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontSize: '12px',
+            color: '#757575',
+            marginBottom: '1rem',
+          }}
+        >
+          <span>₹0</span>
+          <span>{`₹${revenueGoal.goalRevenue.toLocaleString()}`}</span>
+        </div>
 
+        {/* Donut Chart */}
+        <ReactApexChart
+          options={{
+            chart: salesRevenueData.chart,
+            labels: salesRevenueData.labels,
+            colors: salesRevenueData.colors,
+          }}
+          series={salesRevenueData.series}
+          type="donut"
+          height={320}
+        />
+        </div>
+        
+        {/* Monthly Recurring Revenue Chart */}
+        <div
+          style={{
+            backgroundColor: "#fff",
+            padding: "1.5rem",
+            borderRadius: "0.5rem",
+            border: "1px solid #e5e7eb",
+          }}
+        >
+          <ReactApexChart
+            options={monthlyRevenueOptions}
+            series={monthlyRevenueOptions.series}
+            type="area"
+            height={350}
+          />
+
+          {/* Below the Line Chart */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              marginTop: "1rem",
+              backgroundColor: "#d8d8d8",
+              padding: "1rem",
+              borderRadius: "0.5rem",
+            }}
+          >
+            <div style={{ textAlign: "center" }}>
+              <h4 style={{ margin: 0 }}>₹408.9k</h4>
+              <p style={{ margin: 0 }}>Current MRR</p>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "0.5rem" }}>
+                <h4 style={{ margin: 0 }}>₹372.0k</h4>
+                <h4 style={{ margin: 0, color: "#28a745" }}>+9.94%</h4>
+              </div>
+              <p style={{ margin: 0 }}>30 days ago</p>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "0.5rem" }}>
+                <h4 style={{ margin: 0 }}>₹353.8k</h4>
+                <h4 style={{ margin: 0, color: "#28a745" }}>+15.6%</h4>
+              </div>
+              <p style={{ margin: 0 }}>60 days ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Charts Grid */}
       <div style={{ marginTop: '1.5rem' }}>

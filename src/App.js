@@ -268,106 +268,106 @@ const App = () => {
                   </span>
                 </button>
                 {/* User Dropdown */}
-<div style={{ position: "relative" }}>
-  <button
-    style={{
-      display: "flex",
-      alignItems: "center",
-      gap: "0.5rem",
-      padding: "0.5rem",
-      borderRadius: "0.5rem",
-      cursor: "pointer",
-      border: "none",
-      background: "none",
-    }}
-    onClick={(e) => {
-      e.stopPropagation(); // Prevent event propagation
-      setDropdownOpen((prev) => !prev); // Toggle the dropdown
-    }}
-  >
-    <div
-      style={{
-        backgroundColor: "#f9a8d4",
-        color: "#ffffff",
-        width: "2rem",
-        height: "2rem",
-        borderRadius: "50%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontWeight: "600",
-        fontSize: "1rem",
-      }}
-    >
-      RK
-    </div>
-    <span style={{ fontWeight: "500", color: "#374151" }}>Ram Kumar</span>
-    <i className="fas fa-chevron-down" style={{ color: "#9ca3af" }}></i>
-  </button>
+                <div style={{ position: "relative" }}>
+                  <button
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      padding: "0.5rem",
+                      borderRadius: "0.5rem",
+                      cursor: "pointer",
+                      border: "none",
+                      background: "none",
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent event propagation
+                      setDropdownOpen((prev) => !prev); // Toggle the dropdown
+                    }}
+                  >
+                    <div
+                      style={{
+                        backgroundColor: "#f9a8d4",
+                        color: "#ffffff",
+                        width: "2rem",
+                        height: "2rem",
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: "600",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      RK
+                    </div>
+                    <span style={{ fontWeight: "500", color: "#374151" }}>Ram Kumar</span>
+                    <i className="fas fa-chevron-down" style={{ color: "#9ca3af" }}></i>
+                  </button>
 
-  {/* Dropdown Menu */}
-  {dropdownOpen && (
-    <div
-      style={{
-        position: "absolute",
-        top: "2.5rem",
-        right: "0",
-        backgroundColor: "#ffffff",
-        border: "1px solid #e5e7eb",
-        borderRadius: "0.5rem",
-        boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-        width: "12rem",
-        zIndex: 50,
-      }}
-      onClick={(e) => e.stopPropagation()} // Prevent closing on child click
-    >
-      <a
-        href="#profile"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          padding: "0.75rem 1rem",
-          fontSize: "0.875rem",
-          color: "#374151",
-          textDecoration: "none",
-          borderBottom: "1px solid #e5e7eb",
-        }}
-      >
-        <i className="fas fa-user" style={{ marginRight: "0.5rem" }}></i>
-        Profile
-      </a>
-      <a
-        href="#settings"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          padding: "0.75rem 1rem",
-          fontSize: "0.875rem",
-          color: "#374151",
-          textDecoration: "none",
-          borderBottom: "1px solid #e5e7eb",
-        }}
-      >
-        <i className="fas fa-cog" style={{ marginRight: "0.5rem" }}></i>
-        Settings
-      </a>
-      <a
-        href="#logout"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          padding: "0.75rem 1rem",
-          fontSize: "0.875rem",
-          color: "#ef4444",
-          textDecoration: "none",
-        }}
-      >
-        <i className="fas fa-sign-out-alt" style={{ marginRight: "0.5rem" }}></i>
-        Logout
-      </a>
-    </div>
-  )}
-</div>;
+                  {/* Dropdown Menu */}
+                  {dropdownOpen && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "2.5rem",
+                        right: "0",
+                        backgroundColor: "#ffffff",
+                        border: "1px solid #e5e7eb",
+                        borderRadius: "0.5rem",
+                        boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+                        width: "12rem",
+                        zIndex: 50,
+                      }}
+                      onClick={(e) => e.stopPropagation()} // Prevent closing on child click
+                    >
+                      <a
+                        href="#profile"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          padding: "0.75rem 1rem",
+                          fontSize: "0.875rem",
+                          color: "#374151",
+                          textDecoration: "none",
+                          borderBottom: "1px solid #e5e7eb",
+                        }}
+                      >
+                        <i className="fas fa-user" style={{ marginRight: "0.5rem" }}></i>
+                        Profile
+                      </a>
+                      <a
+                        href="#settings"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          padding: "0.75rem 1rem",
+                          fontSize: "0.875rem",
+                          color: "#374151",
+                          textDecoration: "none",
+                          borderBottom: "1px solid #e5e7eb",
+                        }}
+                      >
+                        <i className="fas fa-cog" style={{ marginRight: "0.5rem" }}></i>
+                        Settings
+                      </a>
+                      <a
+                        href="#logout"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          padding: "0.75rem 1rem",
+                          fontSize: "0.875rem",
+                          color: "#ef4444",
+                          textDecoration: "none",
+                        }}
+                      >
+                        <i className="fas fa-sign-out-alt" style={{ marginRight: "0.5rem" }}></i>
+                        Logout
+                      </a>
+                    </div>
+                  )}
+                </div>;
 
               </div>
             </div>
