@@ -51,16 +51,16 @@ const Regions = () => {
       title: "AI Regional Insights",
       items: [
         {
-          heading: "Growth Leader",
-          description: "Tamil Nadu leads with ₹45.2M in revenue",
+          heading: " Regional Demand Spike",
+          description: "Demand for HbA1c Test Kits in Bangalore increased by 25% due to rising diabetes awareness campaigns.",
         },
         {
-          heading: "Emerging Region",
-          description: "Andhra Pradesh shows consistent growth of +10.5%",
+          heading: "Untapped Market Opportunities ",
+          description: "Identified 15 underserved diagnostic labs in Tier-2 cities like Coimbatore and Madurai, representing a ₹3M revenue opportunity.",
         },
         {
-          heading: "Customer Retention",
-          description: "Karnataka has the highest repeat customer rate",
+          heading: "Seasonal Trends",
+          description: "Sales of ELISA Kits in Kerala peak by 20% in Q3 due to monsoon-driven rise in infectious disease testing.",
         },
       ],
       bgColor: "#eff6ff",
@@ -71,16 +71,16 @@ const Regions = () => {
       title: "AI Customer Insights",
       items: [
         {
-          heading: "New Customer Growth",
-          description: "44% of total customers are first-time buyers",
+          heading: "Repeat Buyer Identification",
+          description: "70% of purchases for Rapid Test Kits come from top-tier diagnostic labs with recurring monthly orders.",
         },
         {
-          heading: "Returning Customers",
-          description: "56% are repeat customers with higher purchase values",
+          heading: "Purchase Behavior",
+          description: "Clients in Chennai prefer bulk orders for Sample Collection Kits due to higher lab throughput.",
         },
         {
-          heading: "Urban Market Focus",
-          description: "Chennai and Bangalore account for 40% of revenue",
+          heading: "Key Influencer Labs",
+          description: "5 major labs account for 40% of total purchases in Hyderabad, making them critical to revenue.",
         },
       ],
       bgColor: "#f0fdf4",
@@ -88,7 +88,6 @@ const Regions = () => {
       iconClass: "fas fa-users",
     },
   ];
-
   return (
     <section id="regions" style={{ padding: '1.5rem', display: 'block' }}>
       {/* Filters */}

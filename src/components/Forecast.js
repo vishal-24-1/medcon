@@ -13,16 +13,16 @@ const Forecast = () => {
       title: "AI Revenue Insights",
       items: [
         {
-          heading: "Quarterly Revenue Growth",
-          description: "Projected quarterly revenue is ₹298.5M, a growth of 12.3% compared to the last quarter.",
+          heading: " Untapped Revenue",
+          description: "₹2.5M untapped revenue in premium diagnostic devices across Chennai and Madurai." ,
         },
         {
-          heading: "High Growth Segments",
-          description: "Products like 'Mispa CX4' and 'Mispa HX 88' are forecasted to grow by 18% and 15%, respectively.",
+          heading: "Margin Optimization",
+          description: "Profit margins for PCR Kits can increase by 10% with optimized raw material sourcing.",
         },
         {
-          heading: "Market Growth Opportunities",
-          description: "Optimistic market scenarios predict an additional 10% growth in revenue by leveraging seasonality trends.",
+          heading: "High-Impact Product Focus",
+          description: "ELISA Kits drive 40% of revenue, making them key for Q1 campaigns.",
         },
       ],
       bgColor: "#eef2ff",
@@ -33,16 +33,16 @@ const Forecast = () => {
       title: "AI Scenario Insights",
       items: [
         {
-          heading: "Base Case Stability",
-          description: "Base-case revenue remains stable across all months, ensuring consistent cash flow.",
+          heading: " Impact of Pricing Changes ",
+          description: "Reducing price by ₹50 for Rapid Test Kits in Hyderabad could boost sales by 15%.",
         },
         {
-          heading: "Optimistic Scenario Impact",
-          description: "Optimistic scenarios predict a potential revenue boost of ₹76M in the next quarter.",
+          heading: " Regional Growth Scenarios",
+          description: "Expanding distribution to rural areas in Tamil Nadu can generate ₹1.5M in additional revenue.",
         },
         {
-          heading: "Seasonality Opportunities",
-          description: "High season adjustments could optimize growth potential by up to 8% during peak months.",
+          heading: "Product Bundling Impact",
+          description: "Bundling ELISA Kits and Sample Preparation Reagents could increase revenue by 20%.",
         },
       ],
       bgColor: "#fefce8",
@@ -53,16 +53,16 @@ const Forecast = () => {
       title: "AI Product Insights",
       items: [
         {
-          heading: "Top Performers",
-          description: "'Mispa CX4' and 'TBA-2000FR' are forecasted to generate the highest revenue, contributing 40% of total revenue.",
+          heading: "Product Demand Trends",
+          description: "Rapid Test Kits experienced a 30% sales spike last month due to flu season.",
         },
         {
-          heading: "Emerging Product",
-          description: "'Mispa Nano' shows steady growth of 20% quarter-over-quarter, driven by competitive pricing strategies.",
+          heading: "Underperforming SKUs",
+          description: "Microbiological Culture Media sales dropped 15% due to pricing issues.",
         },
         {
-          heading: "Focus Areas",
-          description: "Increasing production capacity for high-growth products like 'Mispa HX 88' is recommended.",
+          heading: "Top Product Performers",
+          description: "ELISA Kits contributed to 45% of total revenue last quarter.",
         },
       ],
       bgColor: "#f0fdf4",

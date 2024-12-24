@@ -49,16 +49,16 @@ const Customers = () => {
       title: "AI Customer Segmentation Insights",
       items: [
         {
-          heading: "High Loyal Customer Base",
-          description: "76% of customers exhibit loyalty, purchasing multiple times within a year.",
+          heading: "Revenue Contribution by Segment",
+          description: "Diagnostic chains contribute 60% of revenue, while small labs account for 30%.",
         },
         {
-          heading: "Retention Challenges",
-          description: "15% of customers fall into the 'At Risk' or 'Lost' categories, requiring targeted re-engagement strategies.",
+          heading: "Product Preference by Segment",
+          description: "Small labs show higher adoption of ELISA Kits, while larger chains prefer PCR Kits.",
         },
         {
-          heading: "New Customer Surge",
-          description: "44% of total customers onboarded this quarter are new acquisitions.",
+          heading: "High-Growth Segments",
+          description: "New diagnostic startups in South India are the fastest-growing customer segment, increasing purchases by 22% quarterly.",
         },
       ],
       bgColor: "#eff6ff",
@@ -69,16 +69,16 @@ const Customers = () => {
       title: "AI Retention Insights",
       items: [
         {
-          heading: "Steady Retention",
-          description: "Retention rates remain high at 84.6% across all customer categories.",
+          heading: "Churn Prediction ",
+          description: "10 high-value clients are at risk of churn due to delivery delays in the past quarter.",
         },
         {
-          heading: "Top Performing Product",
-          description: "Mispa CX4 boasts the highest retention rate of 89%.",
+          heading: " Retention Campaign Effectiveness",
+          description: "Email campaigns reduced churn by 15% among low-engagement customers.",
         },
         {
-          heading: "Improving Repeat Purchase Frequency",
-          description: "Customer purchase frequency averages 4.5 months, with room for optimization.",
+          heading: "Loyalty Program Impact",
+          description: "Introducing a discount-based loyalty program for high-volume buyers increased retention by 20%.",
         },
       ],
       bgColor: "#fefce8",

@@ -84,19 +84,19 @@ const Products = () => {
 
   const insights = [
     {
-      title: "AI Product Optimization",
+      title: "Product Performance Insights",
       items: [
         {
-          heading: "Inventory Replenishment",
-          description: "Suggests restocking thresholds based on sales trends to maintain optimal stock levels.",
+          heading: "Momentum Progress Analysis",
+          description: "Momentum for AutoLab ECR 10 increased by 15% this month due to successful advertising campaigns in South India.",
         },
         {
-          heading: "Revenue Contribution",
-          description: "Highlights that Mispa CX4 contributes 30% to overall revenue.",
+          heading: "Profitability Insights",
+          description: "Profit margins dropped by 5% last month due to increased raw material costs.",
         },
         {
-          heading: "Product Growth",
-          description: "Identifies that Immunology Analyzers are growing at +12.5%, requiring enhanced focus.",
+          heading: "Performance Analysis",
+          description: "This product's revenue grew by 18% quarter-on-quarter, driven by increased sales in urban regions like Chennai and Bangalore.",
         },
       ],
       bgColor: "#f0fdf4",
@@ -104,19 +104,19 @@ const Products = () => {
       iconClass: "fas fa-box",
     },
     {
-      title: "AI Product Trends",
+      title: "Optimization and Strategy Insights",
       items: [
         {
-          heading: "Emerging Product",
-          description: "Urine Analyzers are showing a sales increase of +9.2%.",
+          heading: "Sales Optimization Opportunity ",
+          description: "Mission U500 could sell 20% more units with a ₹50 price reduction in competitive markets like Hyderabad.",
         },
         {
-          heading: "Top Performer",
-          description: "Clinical Chemistry leads the revenue chart with ₹12.4M.",
+          heading: "Stock Management Insight",
+          description: "Inventory for OnCall A1c will deplete in 45 days if current sales momentum continues.",
         },
         {
-          heading: "Underperforming Product",
-          description: "Molecular Diagnostics needs marketing adjustments to meet expectations.",
+          heading: "Cross-Selling Opportunities",
+          description: "Customers buying EuroLab 200 also purchase 'Sample Collection Kits' 70% of the time, offering bundling potential.",
         },
       ],
       bgColor: "#eff6ff",
